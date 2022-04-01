@@ -42,6 +42,8 @@
             this.tbxCodePostal = new System.Windows.Forms.TextBox();
             this.tbxEmail = new System.Windows.Forms.TextBox();
             this.lblAvertissement = new System.Windows.Forms.Label();
+            this.lblMdp = new System.Windows.Forms.Label();
+            this.tbxMdp = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblNom
@@ -74,7 +76,7 @@
             // lblVille
             // 
             this.lblVille.AutoSize = true;
-            this.lblVille.Location = new System.Drawing.Point(34, 121);
+            this.lblVille.Location = new System.Drawing.Point(31, 121);
             this.lblVille.Name = "lblVille";
             this.lblVille.Size = new System.Drawing.Size(26, 13);
             this.lblVille.TabIndex = 3;
@@ -83,7 +85,7 @@
             // lblCodePostal
             // 
             this.lblCodePostal.AutoSize = true;
-            this.lblCodePostal.Location = new System.Drawing.Point(34, 151);
+            this.lblCodePostal.Location = new System.Drawing.Point(31, 151);
             this.lblCodePostal.Name = "lblCodePostal";
             this.lblCodePostal.Size = new System.Drawing.Size(64, 13);
             this.lblCodePostal.TabIndex = 4;
@@ -92,7 +94,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(34, 184);
+            this.lblEmail.Location = new System.Drawing.Point(31, 184);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(32, 13);
             this.lblEmail.TabIndex = 5;
@@ -100,7 +102,7 @@
             // 
             // btnCreer
             // 
-            this.btnCreer.Location = new System.Drawing.Point(247, 229);
+            this.btnCreer.Location = new System.Drawing.Point(149, 283);
             this.btnCreer.Name = "btnCreer";
             this.btnCreer.Size = new System.Drawing.Size(75, 23);
             this.btnCreer.TabIndex = 6;
@@ -165,7 +167,7 @@
             // 
             // tbxEmail
             // 
-            this.tbxEmail.ForeColor = System.Drawing.Color.Gray;
+            this.tbxEmail.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbxEmail.Location = new System.Drawing.Point(126, 184);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(196, 20);
@@ -177,17 +179,40 @@
             // lblAvertissement
             // 
             this.lblAvertissement.AutoSize = true;
-            this.lblAvertissement.Location = new System.Drawing.Point(49, 272);
+            this.lblAvertissement.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblAvertissement.Location = new System.Drawing.Point(58, 256);
             this.lblAvertissement.Name = "lblAvertissement";
             this.lblAvertissement.Size = new System.Drawing.Size(264, 13);
             this.lblAvertissement.TabIndex = 13;
             this.lblAvertissement.Text = "A l\'exception du mail, tous les champs sont obligatoires";
             // 
+            // lblMdp
+            // 
+            this.lblMdp.AutoSize = true;
+            this.lblMdp.Location = new System.Drawing.Point(31, 217);
+            this.lblMdp.Name = "lblMdp";
+            this.lblMdp.Size = new System.Drawing.Size(74, 13);
+            this.lblMdp.TabIndex = 15;
+            this.lblMdp.Text = "Mot De Passe";
+            // 
+            // tbxMdp
+            // 
+            this.tbxMdp.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.tbxMdp.Location = new System.Drawing.Point(126, 217);
+            this.tbxMdp.Name = "tbxMdp";
+            this.tbxMdp.Size = new System.Drawing.Size(196, 20);
+            this.tbxMdp.TabIndex = 16;
+            this.tbxMdp.Text = "ex. : *********";
+            this.tbxMdp.Enter += new System.EventHandler(this.tbxMdp_Enter);
+            this.tbxMdp.Leave += new System.EventHandler(this.tbxMdp_Leave);
+            // 
             // FormCreerClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(356, 318);
+            this.ClientSize = new System.Drawing.Size(379, 349);
+            this.Controls.Add(this.tbxMdp);
+            this.Controls.Add(this.lblMdp);
             this.Controls.Add(this.lblAvertissement);
             this.Controls.Add(this.tbxEmail);
             this.Controls.Add(this.tbxCodePostal);
@@ -225,5 +250,7 @@
         private System.Windows.Forms.TextBox tbxCodePostal;
         private System.Windows.Forms.TextBox tbxEmail;
         private System.Windows.Forms.Label lblAvertissement;
+        private System.Windows.Forms.Label lblMdp;
+        private System.Windows.Forms.TextBox tbxMdp;
     }
 }
