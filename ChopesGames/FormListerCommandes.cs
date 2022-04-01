@@ -80,7 +80,7 @@ namespace ChopesGames
             try
             {
                 int noClient;
-                string nom, prenom, adresse, ville;
+                string nom, prenom, adresse, ville, mdp;
                 int codePostal;
                 string email;
                 MySqlDataReader jeuEnr = null;
@@ -96,7 +96,8 @@ namespace ChopesGames
                     ville = jeuEnr.GetString("VILLE");
                     codePostal = jeuEnr.GetInt32("CODEPOSTAL");
                     email = jeuEnr.GetString("EMAIL");
-                    cmbClient.Items.Add(new Client(noClient, nom, prenom, adresse, ville, codePostal, email));
+                    mdp = jeuEnr.GetString("MOTDEPASSE");
+                    cmbClient.Items.Add(new Client(noClient, nom, prenom, adresse, ville, codePostal, email, mdp));
                 }
             }
             catch (MySqlException erreur)

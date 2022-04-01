@@ -9,12 +9,12 @@ namespace ChopesGames
     class Client
     {
         private int noClient;
-        private string nom, prenom, adresse, ville;
+        private string nom, prenom, adresse, ville, mdp;
         private int codePostal;
         private string email;
 
         public Client(int noClient, string nom, string prenom, string adresse,
-                        string ville, int codePostal, string email)
+                        string ville, int codePostal, string email, string mdp)
         {
             this.noClient = noClient;
             this.nom = nom;
@@ -23,6 +23,7 @@ namespace ChopesGames
             this.ville = ville;
             this.codePostal = codePostal;
             this.email = email;
+            this.mdp = mdp;
         }
 
         public int GetNoClient()
