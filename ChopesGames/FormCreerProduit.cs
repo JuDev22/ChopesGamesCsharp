@@ -24,12 +24,12 @@ namespace ChopesGames
             // Chargement des catégories dans cmbCategorie
             try
             {
-                string requête;
+                string requête, produit;
                 int noCategorie;
-                string libelle;
+                string libelle, detail, prixHt, tauxTVA, nominage, quantiteEnStock, dateAjout, disponible, vitrine;
                 MySqlDataReader jeuEnr = null;
                 maCnx.Open(); // on se connecte
-                requête = "Select * from Categorie";
+                requête = "Select * from Categorie inner join produit on (categorie.nocategorie=produit.nocategorie)";
                 var maCde = new MySqlCommand(requête, maCnx);
                 jeuEnr = maCde.ExecuteReader();
 
@@ -93,8 +93,8 @@ namespace ChopesGames
                 {
                     string requête;
                     maCnx.Open(); // on se connecte
-                    requête = "Insert into Produit(NOCATEGORIE,NOMARQUE,LIBELLE,DETAIL,PRIXHT,TAUXTVA) " +
-                        "values (@noCategorie,@noMarque,@libelle,@detail,@prixHT,@tauxTVA)";
+                    requête = "Insert into produit(NOCATEGORIE,NOMARQUE,LIBELLE,DETAIL,PRIXHT,TAUXTVA,NOMIMAGE,QUANTITEENSTOCK,DATEAJOUT,DISPONIBLE,VITRINE)" +
+                        "values (@noCategorie,@noMarque,@libelle,@detail,@prixHT,@tauxTVA,@nomimage,@quantiteenstock,@dateajout,@disponible,@vitrine)";
                     var maCde = new MySqlCommand(requête, maCnx);
                     maCde.Prepare();
 
@@ -106,7 +106,25 @@ namespace ChopesGames
                     maCde.Parameters.AddWithValue("@detail", tbxDetail.Text);
                     maCde.Parameters.AddWithValue("@prixHT", tbxPrixHT.Text);
                     maCde.Parameters.AddWithValue("@tauxTVA", tbxTauxTVA.Text);
-                                        
+                    maCde.Parameters.AddWithValue("@nomimage", tbxNomimage.Text);
+                    maCde.Parameters.AddWithValue("@quantiteenstock", numericQuantite.Value);
+                    maCde.Parameters.AddWithValue("@dateajout", dateTimeAjout.Value);
+                    if (ckbDisponibiliteOui.Checked == true)
+                    {
+                        maCde.Parameters.AddWithValue("@disponible", 1);
+                    }
+                    else
+                    {
+                        maCde.Parameters.AddWithValue("@disponible", 0);
+                    }
+                    if (ckbVitrineOui.Checked == true)
+                    {
+                        maCde.Parameters.AddWithValue("@vitrine", 1);
+                    }
+                    else
+                    {
+                        maCde.Parameters.AddWithValue("@vitrine", 0);
+                    }
                     int nbLigneAffectées = maCde.ExecuteNonQuery();
                     MessageBox.Show(nbLigneAffectées.ToString()+" produit(s) créé(s).", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
@@ -116,6 +134,8 @@ namespace ChopesGames
                     tbxPrixHT.Clear();
                     tbxTauxTVA.Clear();
                     cmbCategorie.Focus(); // on remet le focus sur la combo catégorie
+                    tbxPrixHT.Clear();
+                    tbxNomimage.Clear();
                 }
                 catch (MySqlException erreur)
                 {
@@ -152,6 +172,41 @@ namespace ChopesGames
                 prixHTEstValide = false;
             }
         }
+
+
+        private void ckbDisponibiliteNon_Click(object sender, EventArgs e)
+        {
+            ckbDisponibiliteOui.Checked = false;
+            ckbDisponibiliteNon.Checked = true;
+        }
+
+        private void ckbDisponibiliteOui_Click(object sender, EventArgs e)
+        {
+            if (numericQuantite.Value != 0)
+            {
+                ckbDisponibiliteOui.Checked = true;
+                ckbDisponibiliteNon.Checked = false;
+            }
+            else
+            {
+                ckbDisponibiliteOui.Checked = false;
+                MessageBox.Show("Vous ne pouvez pas activité la disponibilitée d'un produit sans en avoir en stock !");
+            }
+            
+        }
+
+        private void ckbVitrineNon_Click(object sender, EventArgs e)
+        {
+            ckbVitrineNon.Checked = true;
+            ckbVitrineOui.Checked = false;
+        }
+
+        private void ckbVitrineOui_Click(object sender, EventArgs e)
+        {
+            ckbVitrineNon.Checked = false;
+            ckbVitrineOui.Checked = true;
+        }
+
         private void tbxTauxTVA_Leave(object sender, EventArgs e)
         {
             if (regexPrixHTTauxTVA.Match(tbxTauxTVA.Text).Success & tbxTauxTVA.Text != "")
