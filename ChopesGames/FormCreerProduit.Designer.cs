@@ -258,16 +258,20 @@
             this.ckbVitrineOui.TabIndex = 24;
             this.ckbVitrineOui.Text = "Oui";
             this.ckbVitrineOui.UseVisualStyleBackColor = true;
+            this.ckbVitrineOui.Click += new System.EventHandler(this.ckbVitrineOui_Click);
             // 
             // ckbVitrineNon
             // 
             this.ckbVitrineNon.AutoSize = true;
+            this.ckbVitrineNon.Checked = true;
+            this.ckbVitrineNon.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckbVitrineNon.Location = new System.Drawing.Point(201, 473);
             this.ckbVitrineNon.Name = "ckbVitrineNon";
             this.ckbVitrineNon.Size = new System.Drawing.Size(46, 17);
             this.ckbVitrineNon.TabIndex = 25;
             this.ckbVitrineNon.Text = "Non";
             this.ckbVitrineNon.UseVisualStyleBackColor = true;
+            this.ckbVitrineNon.Click += new System.EventHandler(this.ckbVitrineNon_Click);
             // 
             // numericQuantite
             // 

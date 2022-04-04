@@ -195,6 +195,18 @@ namespace ChopesGames
             
         }
 
+        private void ckbVitrineNon_Click(object sender, EventArgs e)
+        {
+            ckbVitrineNon.Checked = true;
+            ckbVitrineOui.Checked = false;
+        }
+
+        private void ckbVitrineOui_Click(object sender, EventArgs e)
+        {
+            ckbVitrineNon.Checked = false;
+            ckbVitrineOui.Checked = true;
+        }
+
         private void tbxTauxTVA_Leave(object sender, EventArgs e)
         {
             if (regexPrixHTTauxTVA.Match(tbxTauxTVA.Text).Success & tbxTauxTVA.Text != "")
