@@ -173,52 +173,27 @@ namespace ChopesGames
             }
         }
 
-        private void numericQuantite_ValueChanged(object sender, EventArgs e)
-        {
-            if (numericQuantite.Value == 0 && ckbDisponibiliteNon.Checked == true)
-            {
-                ckbDisponibiliteOui.Checked = false;
-                ckbDisponibiliteNon.Checked = true;
-            }
-            else
-            {
-                ckbDisponibiliteOui.Checked = true;
-                ckbDisponibiliteNon.Checked = false;
-            }
-        }
 
-        private void ckbDisponibiliteOui_CheckedChanged(object sender, EventArgs e)
+        private void ckbDisponibiliteNon_Click(object sender, EventArgs e)
         {
-            if (ckbDisponibiliteOui.Checked == true)
-            {
-                ckbDisponibiliteOui.Checked = true;
-                ckbDisponibiliteNon.Checked = false;
-            }
-            else
-            {
-                ckbDisponibiliteOui.Checked = false;
-                ckbDisponibiliteNon.Checked = true;
-            }
+            ckbDisponibiliteOui.Checked = false;
+            ckbDisponibiliteNon.Checked = true;
         }
 
         private void ckbDisponibiliteOui_Click(object sender, EventArgs e)
         {
-
+            if (numericQuantite.Value != 0)
+            {
+                ckbDisponibiliteOui.Checked = true;
+                ckbDisponibiliteNon.Checked = false;
+            }
+            else
+            {
+                ckbDisponibiliteOui.Checked = false;
+                MessageBox.Show("Vous ne pouvez pas activité la disponibilitée d'un produit sans en avoir en stock !");
+            }
+            
         }
-
-
-        /*        private void tbxLibelle_KeyPress(object sender, KeyPressEventArgs e)
-                {
-
-                    if (tbxNomimage. == Keys.Escape)
-                    {
-                        tbxNomimage.Text += '_';
-                    }
-                    else
-                    {
-                        tbxNomimage.Text = tbxLibelle.Text;
-                    }
-                }*/
 
         private void tbxTauxTVA_Leave(object sender, EventArgs e)
         {

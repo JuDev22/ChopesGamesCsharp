@@ -155,7 +155,6 @@
             this.tbxTauxTVA.Name = "tbxTauxTVA";
             this.tbxTauxTVA.Size = new System.Drawing.Size(147, 20);
             this.tbxTauxTVA.TabIndex = 11;
-            this.tbxTauxTVA.Leave += new System.EventHandler(this.tbxTauxTVA_Leave);
             // 
             // btnCreer
             // 
@@ -210,7 +209,6 @@
             this.ckbDisponibiliteOui.TabIndex = 18;
             this.ckbDisponibiliteOui.Text = "Oui";
             this.ckbDisponibiliteOui.UseVisualStyleBackColor = true;
-            this.ckbDisponibiliteOui.CheckedChanged += new System.EventHandler(this.ckbDisponibiliteOui_CheckedChanged);
             this.ckbDisponibiliteOui.Click += new System.EventHandler(this.ckbDisponibiliteOui_Click);
             // 
             // ckbDisponibiliteNon
@@ -224,6 +222,7 @@
             this.ckbDisponibiliteNon.TabIndex = 19;
             this.ckbDisponibiliteNon.Text = "Non";
             this.ckbDisponibiliteNon.UseVisualStyleBackColor = true;
+            this.ckbDisponibiliteNon.Click += new System.EventHandler(this.ckbDisponibiliteNon_Click);
             // 
             // lblVitrine
             // 
@@ -276,7 +275,6 @@
             this.numericQuantite.Name = "numericQuantite";
             this.numericQuantite.Size = new System.Drawing.Size(47, 20);
             this.numericQuantite.TabIndex = 26;
-            this.numericQuantite.ValueChanged += new System.EventHandler(this.numericQuantite_ValueChanged);
             // 
             // FormCreerProduit
             // 
