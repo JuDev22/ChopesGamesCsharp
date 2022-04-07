@@ -24,9 +24,9 @@ namespace ChopesGames
             // Chargement des catégories dans cmbCategorie
             try
             {
-                string requête, produit;
+                string requête;
                 int noCategorie;
-                string libelle, detail, prixHt, tauxTVA, nominage, quantiteEnStock, dateAjout, disponible, vitrine;
+                string libelle;
                 MySqlDataReader jeuEnr = null;
                 maCnx.Open(); // on se connecte
                 requête = "Select * from Categorie inner join produit on (categorie.nocategorie=produit.nocategorie)";
