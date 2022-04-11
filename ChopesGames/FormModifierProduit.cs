@@ -243,8 +243,8 @@ namespace ChopesGames
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            if (cmbCategorie.SelectedItem is object && cmbMarque.SelectedItem is object /*&&
-    prixHTEstValide*/ && tauxTVAEstValide)
+            if (cmbCategorie.SelectedItem is object && cmbMarque.SelectedItem is object &&
+    prixHTEstValide && tauxTVAEstValide)
             {
                 try
                 {

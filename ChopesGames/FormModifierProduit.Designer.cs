@@ -149,9 +149,9 @@ namespace ChopesGames
             this.lblNomimage.AutoSize = true;
             this.lblNomimage.Location = new System.Drawing.Point(28, 361);
             this.lblNomimage.Name = "lblNomimage";
-            this.lblNomimage.Size = new System.Drawing.Size(57, 13);
+            this.lblNomimage.Size = new System.Drawing.Size(60, 13);
             this.lblNomimage.TabIndex = 40;
-            this.lblNomimage.Text = "Nomimage";
+            this.lblNomimage.Text = "Nom image";
             // 
             // btnModifier
             // 
