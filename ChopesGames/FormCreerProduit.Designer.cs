@@ -48,11 +48,11 @@
             this.ckbDisponibiliteOui = new System.Windows.Forms.CheckBox();
             this.ckbDisponibiliteNon = new System.Windows.Forms.CheckBox();
             this.lblVitrine = new System.Windows.Forms.Label();
-            this.lblDateAjout = new System.Windows.Forms.Label();
-            this.dateTimeAjout = new System.Windows.Forms.DateTimePicker();
             this.ckbVitrineOui = new System.Windows.Forms.CheckBox();
             this.ckbVitrineNon = new System.Windows.Forms.CheckBox();
             this.numericQuantite = new System.Windows.Forms.NumericUpDown();
+            this.lblDateAjout = new System.Windows.Forms.Label();
+            this.dateTimeAjout = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.numericQuantite)).BeginInit();
             this.SuspendLayout();
             // 
@@ -155,6 +155,7 @@
             this.tbxTauxTVA.Name = "tbxTauxTVA";
             this.tbxTauxTVA.Size = new System.Drawing.Size(147, 20);
             this.tbxTauxTVA.TabIndex = 11;
+            this.tbxTauxTVA.Leave += new System.EventHandler(this.tbxTauxTVA_Leave);
             // 
             // btnCreer
             // 
@@ -233,22 +234,6 @@
             this.lblVitrine.TabIndex = 20;
             this.lblVitrine.Text = "Vitrine";
             // 
-            // lblDateAjout
-            // 
-            this.lblDateAjout.AutoSize = true;
-            this.lblDateAjout.Location = new System.Drawing.Point(23, 387);
-            this.lblDateAjout.Name = "lblDateAjout";
-            this.lblDateAjout.Size = new System.Drawing.Size(64, 13);
-            this.lblDateAjout.TabIndex = 22;
-            this.lblDateAjout.Text = "Date d\'ajout";
-            // 
-            // dateTimeAjout
-            // 
-            this.dateTimeAjout.Location = new System.Drawing.Point(153, 387);
-            this.dateTimeAjout.Name = "dateTimeAjout";
-            this.dateTimeAjout.Size = new System.Drawing.Size(147, 20);
-            this.dateTimeAjout.TabIndex = 23;
-            // 
             // ckbVitrineOui
             // 
             this.ckbVitrineOui.AutoSize = true;
@@ -279,6 +264,22 @@
             this.numericQuantite.Name = "numericQuantite";
             this.numericQuantite.Size = new System.Drawing.Size(47, 20);
             this.numericQuantite.TabIndex = 26;
+            // 
+            // lblDateAjout
+            // 
+            this.lblDateAjout.AutoSize = true;
+            this.lblDateAjout.Location = new System.Drawing.Point(23, 387);
+            this.lblDateAjout.Name = "lblDateAjout";
+            this.lblDateAjout.Size = new System.Drawing.Size(64, 13);
+            this.lblDateAjout.TabIndex = 22;
+            this.lblDateAjout.Text = "Date d\'ajout";
+            // 
+            // dateTimeAjout
+            // 
+            this.dateTimeAjout.Location = new System.Drawing.Point(153, 387);
+            this.dateTimeAjout.Name = "dateTimeAjout";
+            this.dateTimeAjout.Size = new System.Drawing.Size(147, 20);
+            this.dateTimeAjout.TabIndex = 23;
             // 
             // FormCreerProduit
             // 
@@ -341,10 +342,10 @@
         private System.Windows.Forms.CheckBox ckbDisponibiliteOui;
         private System.Windows.Forms.CheckBox ckbDisponibiliteNon;
         private System.Windows.Forms.Label lblVitrine;
-        private System.Windows.Forms.Label lblDateAjout;
-        private System.Windows.Forms.DateTimePicker dateTimeAjout;
         private System.Windows.Forms.CheckBox ckbVitrineOui;
         private System.Windows.Forms.CheckBox ckbVitrineNon;
         private System.Windows.Forms.NumericUpDown numericQuantite;
+        private System.Windows.Forms.Label lblDateAjout;
+        private System.Windows.Forms.DateTimePicker dateTimeAjout;
     }
 }
