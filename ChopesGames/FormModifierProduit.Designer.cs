@@ -32,8 +32,6 @@ namespace ChopesGames
             this.numericQuantite = new System.Windows.Forms.NumericUpDown();
             this.ckbVitrineNon = new System.Windows.Forms.CheckBox();
             this.ckbVitrineOui = new System.Windows.Forms.CheckBox();
-            this.dateTimeAjout = new System.Windows.Forms.DateTimePicker();
-            this.lblDateAjout = new System.Windows.Forms.Label();
             this.lblVitrine = new System.Windows.Forms.Label();
             this.ckbDisponibiliteNon = new System.Windows.Forms.CheckBox();
             this.ckbDisponibiliteOui = new System.Windows.Forms.CheckBox();
@@ -41,7 +39,7 @@ namespace ChopesGames
             this.lblQuantiteEnStock = new System.Windows.Forms.Label();
             this.tbxNomimage = new System.Windows.Forms.TextBox();
             this.lblNomimage = new System.Windows.Forms.Label();
-            this.btnCreer = new System.Windows.Forms.Button();
+            this.btnModifier = new System.Windows.Forms.Button();
             this.tbxTauxTVA = new System.Windows.Forms.TextBox();
             this.tbxPrixHT = new System.Windows.Forms.TextBox();
             this.tbxDetail = new System.Windows.Forms.TextBox();
@@ -77,6 +75,7 @@ namespace ChopesGames
             this.ckbVitrineNon.TabIndex = 50;
             this.ckbVitrineNon.Text = "Non";
             this.ckbVitrineNon.UseVisualStyleBackColor = true;
+            this.ckbVitrineNon.Click += new System.EventHandler(this.ckbVitrineNon_Click);
             // 
             // ckbVitrineOui
             // 
@@ -87,22 +86,7 @@ namespace ChopesGames
             this.ckbVitrineOui.TabIndex = 49;
             this.ckbVitrineOui.Text = "Oui";
             this.ckbVitrineOui.UseVisualStyleBackColor = true;
-            // 
-            // dateTimeAjout
-            // 
-            this.dateTimeAjout.Location = new System.Drawing.Point(158, 390);
-            this.dateTimeAjout.Name = "dateTimeAjout";
-            this.dateTimeAjout.Size = new System.Drawing.Size(147, 20);
-            this.dateTimeAjout.TabIndex = 48;
-            // 
-            // lblDateAjout
-            // 
-            this.lblDateAjout.AutoSize = true;
-            this.lblDateAjout.Location = new System.Drawing.Point(28, 390);
-            this.lblDateAjout.Name = "lblDateAjout";
-            this.lblDateAjout.Size = new System.Drawing.Size(64, 13);
-            this.lblDateAjout.TabIndex = 47;
-            this.lblDateAjout.Text = "Date d\'ajout";
+            this.ckbVitrineOui.Click += new System.EventHandler(this.ckbVitrineOui_Click);
             // 
             // lblVitrine
             // 
@@ -116,14 +100,13 @@ namespace ChopesGames
             // ckbDisponibiliteNon
             // 
             this.ckbDisponibiliteNon.AutoSize = true;
-            this.ckbDisponibiliteNon.Checked = true;
-            this.ckbDisponibiliteNon.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckbDisponibiliteNon.Location = new System.Drawing.Point(206, 451);
             this.ckbDisponibiliteNon.Name = "ckbDisponibiliteNon";
             this.ckbDisponibiliteNon.Size = new System.Drawing.Size(46, 17);
             this.ckbDisponibiliteNon.TabIndex = 45;
             this.ckbDisponibiliteNon.Text = "Non";
             this.ckbDisponibiliteNon.UseVisualStyleBackColor = true;
+            this.ckbDisponibiliteNon.Click += new System.EventHandler(this.ckbDisponibiliteNon_Click);
             // 
             // ckbDisponibiliteOui
             // 
@@ -134,6 +117,7 @@ namespace ChopesGames
             this.ckbDisponibiliteOui.TabIndex = 44;
             this.ckbDisponibiliteOui.Text = "Oui";
             this.ckbDisponibiliteOui.UseVisualStyleBackColor = true;
+            this.ckbDisponibiliteOui.Click += new System.EventHandler(this.ckbDisponibiliteOui_Click);
             // 
             // lblDisponibilite
             // 
@@ -169,14 +153,15 @@ namespace ChopesGames
             this.lblNomimage.TabIndex = 40;
             this.lblNomimage.Text = "Nomimage";
             // 
-            // btnCreer
+            // btnModifier
             // 
-            this.btnCreer.Location = new System.Drawing.Point(184, 509);
-            this.btnCreer.Name = "btnCreer";
-            this.btnCreer.Size = new System.Drawing.Size(121, 23);
-            this.btnCreer.TabIndex = 39;
-            this.btnCreer.Text = "Créer";
-            this.btnCreer.UseVisualStyleBackColor = true;
+            this.btnModifier.Location = new System.Drawing.Point(184, 509);
+            this.btnModifier.Name = "btnModifier";
+            this.btnModifier.Size = new System.Drawing.Size(121, 23);
+            this.btnModifier.TabIndex = 39;
+            this.btnModifier.Text = "Modifier";
+            this.btnModifier.UseVisualStyleBackColor = true;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // tbxTauxTVA
             // 
@@ -184,6 +169,7 @@ namespace ChopesGames
             this.tbxTauxTVA.Name = "tbxTauxTVA";
             this.tbxTauxTVA.Size = new System.Drawing.Size(147, 20);
             this.tbxTauxTVA.TabIndex = 38;
+            this.tbxTauxTVA.TextChanged += new System.EventHandler(this.tbxTauxTVA_TextChanged);
             // 
             // tbxPrixHT
             // 
@@ -191,6 +177,7 @@ namespace ChopesGames
             this.tbxPrixHT.Name = "tbxPrixHT";
             this.tbxPrixHT.Size = new System.Drawing.Size(147, 20);
             this.tbxPrixHT.TabIndex = 37;
+            this.tbxPrixHT.TextChanged += new System.EventHandler(this.tbxPrixHT_TextChanged);
             // 
             // tbxDetail
             // 
@@ -210,7 +197,7 @@ namespace ChopesGames
             // cmbMarque
             // 
             this.cmbMarque.FormattingEnabled = true;
-            this.cmbMarque.Location = new System.Drawing.Point(158, 74);
+            this.cmbMarque.Location = new System.Drawing.Point(158, 75);
             this.cmbMarque.Name = "cmbMarque";
             this.cmbMarque.Size = new System.Drawing.Size(147, 21);
             this.cmbMarque.TabIndex = 34;
@@ -305,8 +292,6 @@ namespace ChopesGames
             this.Controls.Add(this.numericQuantite);
             this.Controls.Add(this.ckbVitrineNon);
             this.Controls.Add(this.ckbVitrineOui);
-            this.Controls.Add(this.dateTimeAjout);
-            this.Controls.Add(this.lblDateAjout);
             this.Controls.Add(this.lblVitrine);
             this.Controls.Add(this.ckbDisponibiliteNon);
             this.Controls.Add(this.ckbDisponibiliteOui);
@@ -314,7 +299,7 @@ namespace ChopesGames
             this.Controls.Add(this.lblQuantiteEnStock);
             this.Controls.Add(this.tbxNomimage);
             this.Controls.Add(this.lblNomimage);
-            this.Controls.Add(this.btnCreer);
+            this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.tbxTauxTVA);
             this.Controls.Add(this.tbxPrixHT);
             this.Controls.Add(this.tbxDetail);
@@ -341,8 +326,6 @@ namespace ChopesGames
         private System.Windows.Forms.NumericUpDown numericQuantite;
         private System.Windows.Forms.CheckBox ckbVitrineNon;
         private System.Windows.Forms.CheckBox ckbVitrineOui;
-        private System.Windows.Forms.DateTimePicker dateTimeAjout;
-        private System.Windows.Forms.Label lblDateAjout;
         private System.Windows.Forms.Label lblVitrine;
         private System.Windows.Forms.CheckBox ckbDisponibiliteNon;
         private System.Windows.Forms.CheckBox ckbDisponibiliteOui;
@@ -350,7 +333,7 @@ namespace ChopesGames
         private System.Windows.Forms.Label lblQuantiteEnStock;
         private System.Windows.Forms.TextBox tbxNomimage;
         private System.Windows.Forms.Label lblNomimage;
-        private System.Windows.Forms.Button btnCreer;
+        private System.Windows.Forms.Button btnModifier;
         private System.Windows.Forms.TextBox tbxTauxTVA;
         private System.Windows.Forms.TextBox tbxPrixHT;
         private System.Windows.Forms.TextBox tbxDetail;

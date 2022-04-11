@@ -29,7 +29,7 @@ namespace ChopesGames
                 string libelle;
                 MySqlDataReader jeuEnr = null;
                 maCnx.Open(); // on se connecte
-                requête = "Select * from Categorie inner join produit on (categorie.nocategorie=produit.nocategorie)";
+                requête = "Select * from Categorie";
                 var maCde = new MySqlCommand(requête, maCnx);
                 jeuEnr = maCde.ExecuteReader();
 
@@ -89,6 +89,7 @@ namespace ChopesGames
             if (cmbCategorie.SelectedItem is object && cmbMarque.SelectedItem is object &&
                 prixHTEstValide && tauxTVAEstValide)
             {
+                Console.WriteLine(cmbCategorie.SelectedItem.ToString(), cmbMarque.SelectedItem.ToString());
                 try
                 {
                     string requête;
@@ -108,7 +109,7 @@ namespace ChopesGames
                     maCde.Parameters.AddWithValue("@tauxTVA", tbxTauxTVA.Text);
                     maCde.Parameters.AddWithValue("@nomimage", tbxNomimage.Text);
                     maCde.Parameters.AddWithValue("@quantiteenstock", numericQuantite.Value);
-                    maCde.Parameters.AddWithValue("@dateajout", dateTimeAjout.Value);
+                    maCde.Parameters.AddWithValue("@dateajout", dateTimeAjout.Value.Date);
                     if (ckbDisponibiliteOui.Checked == true)
                     {
                         maCde.Parameters.AddWithValue("@disponible", 1);
@@ -148,18 +149,18 @@ namespace ChopesGames
                         maCnx.Close(); // on se déconnecte
                     }
                 } // try
-            }
+        }
             else
             {
                 MessageBox.Show("Saisie incomplète ou incorrecte.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-        } // méthode
+} // méthode
 
-        // --------------------
-        /* Contrôles de saisie - Nota bene : pas de contrôle sur détail et libellé */
-        // --------------------
-        private void tbxPrixHT_Leave(object sender, EventArgs e)
+// --------------------
+/* Contrôles de saisie - Nota bene : pas de contrôle sur détail et libellé */
+// --------------------
+private void tbxPrixHT_Leave(object sender, EventArgs e)
         {
             if (regexPrixHTTauxTVA.Match(tbxPrixHT.Text).Success & tbxPrixHT.Text != "")
             {
@@ -206,6 +207,7 @@ namespace ChopesGames
             ckbVitrineNon.Checked = false;
             ckbVitrineOui.Checked = true;
         }
+
 
         private void tbxTauxTVA_Leave(object sender, EventArgs e)
         {

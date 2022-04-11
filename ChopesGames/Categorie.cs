@@ -16,10 +16,14 @@ namespace ChopesGames
             this.noCategorie = noCategorie;
             this.libelle = libelle;
         }
-
         public int GetNoCategorie()
         {
             return noCategorie;
+        }
+
+        public string GetLibelle()
+        {
+            return libelle;
         }
         public override string ToString()
         {
