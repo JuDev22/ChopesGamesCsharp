@@ -145,6 +145,12 @@
     <Compile Include="FormListerCommandes.Designer.cs">
       <DependentUpon>FormListerCommandes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormListerProduits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListerProduits.Designer.cs">
+      <DependentUpon>FormListerProduits.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormModifierProduit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormListerCommandes.resx">
       <DependentUpon>FormListerCommandes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormListerProduits.resx">
+      <DependentUpon>FormListerProduits.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormModifierProduit.resx">
       <DependentUpon>FormModifierProduit.cs</DependentUpon>
