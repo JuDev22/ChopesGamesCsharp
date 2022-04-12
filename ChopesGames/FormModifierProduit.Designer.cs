@@ -54,6 +54,8 @@ namespace ChopesGames
             this.lblCategorie = new System.Windows.Forms.Label();
             this.lblChoisirProduit = new System.Windows.Forms.Label();
             this.cmbProduit = new System.Windows.Forms.ComboBox();
+            this.lblPublie = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericQuantite)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,7 +141,7 @@ namespace ChopesGames
             // 
             // tbxNomimage
             // 
-            this.tbxNomimage.Location = new System.Drawing.Point(158, 361);
+            this.tbxNomimage.Location = new System.Drawing.Point(158, 389);
             this.tbxNomimage.Name = "tbxNomimage";
             this.tbxNomimage.Size = new System.Drawing.Size(147, 20);
             this.tbxNomimage.TabIndex = 41;
@@ -147,7 +149,7 @@ namespace ChopesGames
             // lblNomimage
             // 
             this.lblNomimage.AutoSize = true;
-            this.lblNomimage.Location = new System.Drawing.Point(28, 361);
+            this.lblNomimage.Location = new System.Drawing.Point(28, 389);
             this.lblNomimage.Name = "lblNomimage";
             this.lblNomimage.Size = new System.Drawing.Size(60, 13);
             this.lblNomimage.TabIndex = 40;
@@ -165,7 +167,7 @@ namespace ChopesGames
             // 
             // tbxTauxTVA
             // 
-            this.tbxTauxTVA.Location = new System.Drawing.Point(158, 329);
+            this.tbxTauxTVA.Location = new System.Drawing.Point(158, 357);
             this.tbxTauxTVA.Name = "tbxTauxTVA";
             this.tbxTauxTVA.Size = new System.Drawing.Size(147, 20);
             this.tbxTauxTVA.TabIndex = 38;
@@ -173,7 +175,7 @@ namespace ChopesGames
             // 
             // tbxPrixHT
             // 
-            this.tbxPrixHT.Location = new System.Drawing.Point(158, 292);
+            this.tbxPrixHT.Location = new System.Drawing.Point(158, 320);
             this.tbxPrixHT.Name = "tbxPrixHT";
             this.tbxPrixHT.Size = new System.Drawing.Size(147, 20);
             this.tbxPrixHT.TabIndex = 37;
@@ -181,7 +183,7 @@ namespace ChopesGames
             // 
             // tbxDetail
             // 
-            this.tbxDetail.Location = new System.Drawing.Point(158, 158);
+            this.tbxDetail.Location = new System.Drawing.Point(158, 186);
             this.tbxDetail.Multiline = true;
             this.tbxDetail.Name = "tbxDetail";
             this.tbxDetail.Size = new System.Drawing.Size(147, 116);
@@ -189,7 +191,7 @@ namespace ChopesGames
             // 
             // tbxLibelle
             // 
-            this.tbxLibelle.Location = new System.Drawing.Point(158, 121);
+            this.tbxLibelle.Location = new System.Drawing.Point(158, 149);
             this.tbxLibelle.Name = "tbxLibelle";
             this.tbxLibelle.Size = new System.Drawing.Size(147, 20);
             this.tbxLibelle.TabIndex = 35;
@@ -197,7 +199,7 @@ namespace ChopesGames
             // cmbMarque
             // 
             this.cmbMarque.FormattingEnabled = true;
-            this.cmbMarque.Location = new System.Drawing.Point(158, 75);
+            this.cmbMarque.Location = new System.Drawing.Point(158, 103);
             this.cmbMarque.Name = "cmbMarque";
             this.cmbMarque.Size = new System.Drawing.Size(147, 21);
             this.cmbMarque.TabIndex = 34;
@@ -205,7 +207,7 @@ namespace ChopesGames
             // cmbCategorie
             // 
             this.cmbCategorie.FormattingEnabled = true;
-            this.cmbCategorie.Location = new System.Drawing.Point(158, 41);
+            this.cmbCategorie.Location = new System.Drawing.Point(158, 69);
             this.cmbCategorie.Name = "cmbCategorie";
             this.cmbCategorie.Size = new System.Drawing.Size(147, 21);
             this.cmbCategorie.TabIndex = 33;
@@ -213,7 +215,7 @@ namespace ChopesGames
             // lblTauxTVA
             // 
             this.lblTauxTVA.AutoSize = true;
-            this.lblTauxTVA.Location = new System.Drawing.Point(28, 329);
+            this.lblTauxTVA.Location = new System.Drawing.Point(28, 357);
             this.lblTauxTVA.Name = "lblTauxTVA";
             this.lblTauxTVA.Size = new System.Drawing.Size(55, 13);
             this.lblTauxTVA.TabIndex = 32;
@@ -222,7 +224,7 @@ namespace ChopesGames
             // lblPrixHT
             // 
             this.lblPrixHT.AutoSize = true;
-            this.lblPrixHT.Location = new System.Drawing.Point(28, 292);
+            this.lblPrixHT.Location = new System.Drawing.Point(28, 320);
             this.lblPrixHT.Name = "lblPrixHT";
             this.lblPrixHT.Size = new System.Drawing.Size(42, 13);
             this.lblPrixHT.TabIndex = 31;
@@ -231,7 +233,7 @@ namespace ChopesGames
             // lblDetail
             // 
             this.lblDetail.AutoSize = true;
-            this.lblDetail.Location = new System.Drawing.Point(33, 158);
+            this.lblDetail.Location = new System.Drawing.Point(33, 186);
             this.lblDetail.Name = "lblDetail";
             this.lblDetail.Size = new System.Drawing.Size(34, 13);
             this.lblDetail.TabIndex = 30;
@@ -240,7 +242,7 @@ namespace ChopesGames
             // lblLibelle
             // 
             this.lblLibelle.AutoSize = true;
-            this.lblLibelle.Location = new System.Drawing.Point(33, 121);
+            this.lblLibelle.Location = new System.Drawing.Point(33, 149);
             this.lblLibelle.Name = "lblLibelle";
             this.lblLibelle.Size = new System.Drawing.Size(37, 13);
             this.lblLibelle.TabIndex = 29;
@@ -249,7 +251,7 @@ namespace ChopesGames
             // lblMarque
             // 
             this.lblMarque.AutoSize = true;
-            this.lblMarque.Location = new System.Drawing.Point(33, 82);
+            this.lblMarque.Location = new System.Drawing.Point(33, 110);
             this.lblMarque.Name = "lblMarque";
             this.lblMarque.Size = new System.Drawing.Size(43, 13);
             this.lblMarque.TabIndex = 28;
@@ -258,7 +260,7 @@ namespace ChopesGames
             // lblCategorie
             // 
             this.lblCategorie.AutoSize = true;
-            this.lblCategorie.Location = new System.Drawing.Point(33, 50);
+            this.lblCategorie.Location = new System.Drawing.Point(33, 78);
             this.lblCategorie.Name = "lblCategorie";
             this.lblCategorie.Size = new System.Drawing.Size(52, 13);
             this.lblCategorie.TabIndex = 27;
@@ -267,7 +269,7 @@ namespace ChopesGames
             // lblChoisirProduit
             // 
             this.lblChoisirProduit.AutoSize = true;
-            this.lblChoisirProduit.Location = new System.Drawing.Point(33, 15);
+            this.lblChoisirProduit.Location = new System.Drawing.Point(33, 43);
             this.lblChoisirProduit.Name = "lblChoisirProduit";
             this.lblChoisirProduit.Size = new System.Drawing.Size(88, 13);
             this.lblChoisirProduit.TabIndex = 52;
@@ -276,17 +278,36 @@ namespace ChopesGames
             // cmbProduit
             // 
             this.cmbProduit.FormattingEnabled = true;
-            this.cmbProduit.Location = new System.Drawing.Point(158, 12);
+            this.cmbProduit.Location = new System.Drawing.Point(158, 40);
             this.cmbProduit.Name = "cmbProduit";
             this.cmbProduit.Size = new System.Drawing.Size(147, 21);
             this.cmbProduit.TabIndex = 53;
             this.cmbProduit.SelectedIndexChanged += new System.EventHandler(this.cmbProduit_SelectedIndexChanged);
             // 
+            // lblPublie
+            // 
+            this.lblPublie.AutoSize = true;
+            this.lblPublie.Location = new System.Drawing.Point(32, 16);
+            this.lblPublie.Name = "lblPublie";
+            this.lblPublie.Size = new System.Drawing.Size(47, 13);
+            this.lblPublie.TabIndex = 54;
+            this.lblPublie.Text = "Publié le";
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(160, 16);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(0, 13);
+            this.lblDate.TabIndex = 55;
+            // 
             // FormModifierProduit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 541);
+            this.ClientSize = new System.Drawing.Size(347, 541);
+            this.Controls.Add(this.lblDate);
+            this.Controls.Add(this.lblPublie);
             this.Controls.Add(this.cmbProduit);
             this.Controls.Add(this.lblChoisirProduit);
             this.Controls.Add(this.numericQuantite);
@@ -348,5 +369,7 @@ namespace ChopesGames
         private System.Windows.Forms.Label lblCategorie;
         private System.Windows.Forms.Label lblChoisirProduit;
         private System.Windows.Forms.ComboBox cmbProduit;
+        private System.Windows.Forms.Label lblPublie;
+        private System.Windows.Forms.Label lblDate;
     }
 }

@@ -10,11 +10,11 @@ namespace ChopesGames
     {
         // NOPRODUIT, LIBELLE, PRIXHT, TAUXTVA
         private int noProduit, noCategorie, noMarque, quantiteEnStock;
-        private string libelle, detail, nomImage/*, dateAjout*/;
+        private string libelle, detail, nomImage;
         private double prixHT, tauxTVA;
         bool vitrine, disponibilite;
         DateTime dateAjout;
-        public Produit(int noProduit, int noCategorie, int noMarque, int quantiteEnStock, bool disponibilite, bool vitrine, string libelle, string detail, string nomImage, double prixHT, double tauxTVA/*, DateTime dateAjout*/)
+        public Produit(int noProduit, int noCategorie, int noMarque, int quantiteEnStock, bool disponibilite, bool vitrine, string libelle, string detail, string nomImage, double prixHT, double tauxTVA, DateTime dateAjout)
         {
             this.noProduit = noProduit;
             this.noCategorie = noCategorie;
@@ -27,8 +27,7 @@ namespace ChopesGames
             this.prixHT = prixHT;
             this.tauxTVA = tauxTVA;
             this.libelle = libelle;
-            /*this.dateAjout = dateAjout;*/
-            /*this.dateAjout = dateAjout.Date;*/
+            this.dateAjout = dateAjout.Date;
         }
         public int GetNoProduit()
         {
@@ -74,10 +73,10 @@ namespace ChopesGames
         {
             return tauxTVA;
         }
-/*        public DateTime GetDateAJout()
+        public DateTime GetDateAJout()
         {
             return dateAjout.Date;
-        }*/
+        }
         public override string ToString()
         {
             return noProduit.ToString() + " - " + libelle + " - " + prixHT.ToString();

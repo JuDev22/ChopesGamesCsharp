@@ -19,13 +19,15 @@ namespace ChopesGames
         public FormModifierProduit()
         {
             InitializeComponent();
-            maCnx = new MySqlConnection("SERVER=127.0.0.1; DATABASE=chopesgames; UID=root; PASSWORD=");
+            maCnx = new MySqlConnection("SERVER=127.0.0.1; DATABASE=chopesgames; UID=root; PASSWORD=; Convert Zero Datetime = true;");
         }
 
         private void FormModifierProduit_Load(object sender, EventArgs e)
         {
             try
             {
+                lblPublie.Visible = false;
+                lblDate.Visible = false;
                 string requête;
                 int noCategorie;
                 string libelle;
@@ -111,8 +113,8 @@ namespace ChopesGames
                     nomImage = jeuEnr.GetString("NOMIMAGE");
                     prixHT = jeuEnr.GetDouble("PRIXHT");
                     tauxTVA = jeuEnr.GetDouble("TAUXTVA");
-                    /*dateAjout = jeuEnr.GetDateTime("DATEAJOUT");*/
-                    cmbProduit.Items.Add(new Produit(noProduit, noCategorie, noMarque, quantiteEnStock, disponibilite, vitrine, libelle, detail, nomImage, prixHT, tauxTVA/*, dateAjout*/));
+                    dateAjout = jeuEnr.GetDateTime("DATEAJOUT").Date;
+                    cmbProduit.Items.Add(new Produit(noProduit, noCategorie, noMarque, quantiteEnStock, disponibilite, vitrine, libelle, detail, nomImage, prixHT, tauxTVA, dateAjout));
                 }
             }
             catch (MySqlException erreur)
@@ -158,6 +160,9 @@ namespace ChopesGames
                     tbxTauxTVA.Text = ((Produit)(cmbProduit.SelectedItem)).GetTauxTVA().ToString();
                     tbxNomimage.Text = ((Produit)(cmbProduit.SelectedItem)).GetNomImage();
                     numericQuantite.Value = ((Produit)(cmbProduit.SelectedItem)).GetQuantite();
+                    lblPublie.Visible = true;
+                    lblDate.Visible = true;
+                    lblDate.Text = ((Produit)(cmbProduit.SelectedItem)).GetDateAJout().ToString();
                     if (((Produit)(cmbProduit.SelectedItem)).GetDispo())
                     {
                         ckbDisponibiliteNon.Checked = false;
@@ -275,7 +280,6 @@ namespace ChopesGames
                     maCde.Parameters.AddWithValue("@tauxTVA", tbxTauxTVA.Text);
                     maCde.Parameters.AddWithValue("@nomimage", tbxNomimage.Text);
                     maCde.Parameters.AddWithValue("@quantiteenstock", numericQuantite.Value);
-                   /* maCde.Parameters.AddWithValue("@dateajout", dateTimeAjout.Value);*/
                     if (ckbDisponibiliteOui.Checked == true)
                     {
                         maCde.Parameters.AddWithValue("@disponible", 1);
