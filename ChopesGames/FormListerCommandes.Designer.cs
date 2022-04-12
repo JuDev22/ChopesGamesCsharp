@@ -36,7 +36,7 @@
             // lblClient
             // 
             this.lblClient.AutoSize = true;
-            this.lblClient.Location = new System.Drawing.Point(12, 47);
+            this.lblClient.Location = new System.Drawing.Point(16, 13);
             this.lblClient.Name = "lblClient";
             this.lblClient.Size = new System.Drawing.Size(33, 13);
             this.lblClient.TabIndex = 0;
@@ -45,7 +45,7 @@
             // cmbClient
             // 
             this.cmbClient.FormattingEnabled = true;
-            this.cmbClient.Location = new System.Drawing.Point(51, 44);
+            this.cmbClient.Location = new System.Drawing.Point(114, 10);
             this.cmbClient.Name = "cmbClient";
             this.cmbClient.Size = new System.Drawing.Size(121, 21);
             this.cmbClient.TabIndex = 1;
@@ -54,7 +54,7 @@
             // lvCommandes
             // 
             this.lvCommandes.HideSelection = false;
-            this.lvCommandes.Location = new System.Drawing.Point(12, 85);
+            this.lvCommandes.Location = new System.Drawing.Point(16, 51);
             this.lvCommandes.Name = "lvCommandes";
             this.lvCommandes.Size = new System.Drawing.Size(388, 277);
             this.lvCommandes.TabIndex = 2;
@@ -64,12 +64,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 394);
+            this.ClientSize = new System.Drawing.Size(420, 348);
             this.Controls.Add(this.lvCommandes);
             this.Controls.Add(this.cmbClient);
             this.Controls.Add(this.lblClient);
             this.Name = "FormListerCommandes";
-            this.Text = "FormListerCommandes";
+            this.Text = "Liste des commandes";
             this.Load += new System.EventHandler(this.FormListerCommandes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
