@@ -72,7 +72,7 @@ namespace ChopesGames
                 {
                     noMarque = jeuEnr.GetInt32("NOMARQUE");
                     nom = jeuEnr.GetString("NOM");
-                    cmbMarque.Items.Add(new Marque(noMarque, nom));
+                    cmbMarque.Items.Add(new Marque(noMarque, nom)); 
                 }
             }
             catch (MySqlException erreur)
@@ -91,7 +91,7 @@ namespace ChopesGames
                 string requête;
                 int noProduit, noCategorie, noMarque, quantiteEnStock;
                 bool vitrine, disponibilite;
-                string libelle, detail, nomImage/*, dateAjout*/;
+                string libelle, detail, nomImage;
                 double prixHT, tauxTVA;
                 DateTime dateAjout;
                 MySqlDataReader jeuEnr = null;
@@ -264,7 +264,6 @@ namespace ChopesGames
                                              "TAUXTVA = @tauxTVA," +
                                              "NOMIMAGE = @nomimage," +
                                              "QUANTITEENSTOCK = @quantiteenstock," +
-                                             /*"DATEAJOUT = @dateajout," +*/
                                              "DISPONIBLE = @disponible," +
                                              "VITRINE = @vitrine" +
                           " WHERE NOPRODUIT = " + noProduit + ";";

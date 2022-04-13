@@ -40,6 +40,7 @@
             this.miListerCommandes = new System.Windows.Forms.ToolStripMenuItem();
             this.aProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miAProposDeSpaceBoutique = new System.Windows.Forms.ToolStripMenuItem();
+            this.miListerProduits = new System.Windows.Forms.ToolStripMenuItem();
             this.msCreer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,21 +70,21 @@
             // miCreerClient
             // 
             this.miCreerClient.Name = "miCreerClient";
-            this.miCreerClient.Size = new System.Drawing.Size(180, 22);
+            this.miCreerClient.Size = new System.Drawing.Size(137, 22);
             this.miCreerClient.Text = "Client";
             this.miCreerClient.Click += new System.EventHandler(this.miCreerClient_Click);
             // 
             // miCreerProduit
             // 
             this.miCreerProduit.Name = "miCreerProduit";
-            this.miCreerProduit.Size = new System.Drawing.Size(180, 22);
+            this.miCreerProduit.Size = new System.Drawing.Size(137, 22);
             this.miCreerProduit.Text = "Produit";
             this.miCreerProduit.Click += new System.EventHandler(this.miCreerProduit_Click);
             // 
             // miCreerCommande
             // 
             this.miCreerCommande.Name = "miCreerCommande";
-            this.miCreerCommande.Size = new System.Drawing.Size(180, 22);
+            this.miCreerCommande.Size = new System.Drawing.Size(137, 22);
             this.miCreerCommande.Text = "Commande";
             this.miCreerCommande.Click += new System.EventHandler(this.miCreerCommande_Click);
             // 
@@ -105,7 +106,8 @@
             // listerToolStripMenuItem
             // 
             this.listerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.miListerCommandes});
+            this.miListerCommandes,
+            this.miListerProduits});
             this.listerToolStripMenuItem.Name = "listerToolStripMenuItem";
             this.listerToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.listerToolStripMenuItem.Text = "Lister";
@@ -113,7 +115,7 @@
             // miListerCommandes
             // 
             this.miListerCommandes.Name = "miListerCommandes";
-            this.miListerCommandes.Size = new System.Drawing.Size(142, 22);
+            this.miListerCommandes.Size = new System.Drawing.Size(180, 22);
             this.miListerCommandes.Text = "Commandes";
             this.miListerCommandes.Click += new System.EventHandler(this.miListerCommandes_Click);
             // 
@@ -131,6 +133,13 @@
             this.miAProposDeSpaceBoutique.Size = new System.Drawing.Size(217, 22);
             this.miAProposDeSpaceBoutique.Text = "A Propos de ChopesGames";
             this.miAProposDeSpaceBoutique.Click += new System.EventHandler(this.miAProposDeSpaceBoutique_Click);
+            // 
+            // miListerProduits
+            // 
+            this.miListerProduits.Name = "miListerProduits";
+            this.miListerProduits.Size = new System.Drawing.Size(180, 22);
+            this.miListerProduits.Text = "Produits";
+            this.miListerProduits.Click += new System.EventHandler(this.miListerProduits_Click);
             // 
             // FormAccueil
             // 
@@ -165,6 +174,7 @@
         private System.Windows.Forms.ToolStripMenuItem miListerCommandes;
         private System.Windows.Forms.ToolStripMenuItem aProposToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem miAProposDeSpaceBoutique;
+        private System.Windows.Forms.ToolStripMenuItem miListerProduits;
     }
 }
 
