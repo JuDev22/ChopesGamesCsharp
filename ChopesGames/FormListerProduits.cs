@@ -22,18 +22,7 @@ namespace ChopesGames
         }
         void ChargerListeProduits(string requete)
         {
-            // initialisation de la listViev lignes de commande lvProduits
-            lvProduits.View = View.Details; // Mode d'affichage
-            lvProduits.GridLines = true; // on affichera la grille
-            lvProduits.FullRowSelect = true; // Mode de sélection : ligne
-                                             // Pour le mode de selection voir aussi la property SelectionMode
-            lvProduits.Columns.Add("Date", 80);
-            lvProduits.Columns.Add("Libelle", 150);
-            lvProduits.Columns.Add("Prix HT", 80);
-            lvProduits.Columns.Add("Taux TVA", 80);
-            lvProduits.Columns.Add("Quantitée", 70);
-            lvProduits.Columns.Add("Disponible", 70);
-            lvProduits.Columns.Add("Vitrine", 50);
+            lvProduits.Items.Clear();
             try
             {
                 MySqlDataReader jeuEnr = null;
@@ -72,6 +61,18 @@ namespace ChopesGames
         // Au chargement, declaration de la requete puis envoie dans charger produit
         private void FormListerProduits_Load(object sender, EventArgs e)
         {
+            // initialisation de la listViev lignes de commande lvProduits
+            lvProduits.View = View.Details; // Mode d'affichage
+            lvProduits.GridLines = true; // on affichera la grille
+            lvProduits.FullRowSelect = true; // Mode de sélection : ligne
+                                             // Pour le mode de selection voir aussi la property SelectionMode
+            lvProduits.Columns.Add("Date", 80);
+            lvProduits.Columns.Add("Libelle", 150);
+            lvProduits.Columns.Add("Prix HT", 80);
+            lvProduits.Columns.Add("Taux TVA", 80);
+            lvProduits.Columns.Add("Quantitée", 70);
+            lvProduits.Columns.Add("Disponible", 70);
+            lvProduits.Columns.Add("Vitrine", 50);
             try
             {
                 string requête;
@@ -137,83 +138,63 @@ namespace ChopesGames
             ChargerListeProduits(requete);
 
         }
-        // Si l'élément sélectionné de la cmbCategorie est changer, envoie d'une nouvelle requete
+        // Dès que la valeur de la cmbCategorie change, on récupère le noCategorie et on l'envoie a critères de recherche pour la requete
         private void cmbCategorie_SelectedIndexChanged(object sender, EventArgs e)
         {
             int noCategorie = ((Categorie)(cmbCategorie.SelectedItem)).GetNoCategorie();
-            int noMarque = ((Marque)(cmbMarque.SelectedItem)).GetNoMarque();
+            int noMarque = 0;
             foreach (Categorie categorie in cmbCategorie.Items)
             {
                 if (categorie.GetNoCategorie() == noCategorie)
                 {
                     cmbCategorie.SelectedItem = categorie;
+                    criteresRecherche(noMarque, noCategorie);
                 }
-            }
-            foreach (Marque marque in cmbMarque.Items)
-            {
-                if (marque.GetNoMarque() == noMarque)
-                {
-                    cmbMarque.SelectedItem = marque;
-                }
-            }
-            string requete;
-            // Cas ou noCategorie true et noMarque false
-            if (cmbCategorie.Text != null & cmbMarque.Text == null)
-            {
-                requete = "Select DATEAJOUT,LIBELLE,PRIXHT,TAUXTVA,QUANTITEENSTOCK,DISPONIBLE,VITRINE from Produit WHERE NOCATEGORIE = " + noCategorie;
-                ChargerListeProduits(requete);
-            }
-            // Cas ou noCategorie false et noMarque true
-            else if (cmbCategorie.Text == null & cmbMarque.Text != null)
-            {
-                requete = "Select DATEAJOUT,LIBELLE,PRIXHT,TAUXTVA,QUANTITEENSTOCK,DISPONIBLE,VITRINE from Produit WHERE NOMARQUE = " + noMarque;
-                ChargerListeProduits(requete);
-            }
-            // Cas ou noCategorie true et noMarque true
-            else
-            {
-                requete = "Select DATEAJOUT,LIBELLE,PRIXHT,TAUXTVA,QUANTITEENSTOCK,DISPONIBLE,VITRINE from Produit WHERE NOCATEGORIE = " + noCategorie + "AND NOMARQUE = " + noMarque;
-                ChargerListeProduits(requete);
             }
         }
-
+        // Dès que la valeur de la cmbMarque change, on récupère le cmbMarque et on l'envoie a critères de recherche pour la requete
         private void cmbMarque_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int noCategorie = ((Categorie)(cmbCategorie.SelectedItem)).GetNoCategorie();
             int noMarque = ((Marque)(cmbMarque.SelectedItem)).GetNoMarque();
-            foreach (Categorie categorie in cmbCategorie.Items)
+/*            if (cmbCategorie.Text == null)
             {
-                if (categorie.GetNoCategorie() == noCategorie)
-                {
-                    cmbCategorie.SelectedItem = categorie;
-                }
-            }
+            }*/
+                int noCategorie = 0;
+            
             foreach (Marque marque in cmbMarque.Items)
             {
                 if (marque.GetNoMarque() == noMarque)
                 {
                     cmbMarque.SelectedItem = marque;
+                    criteresRecherche(noMarque,noCategorie);
                 }
             }
+        }
+        // Préparation de la requete avec les valeurs récupérés
+        void criteresRecherche(int noMarque, int noCategorie)
+        {
             string requete;
-            // Cas ou noCategorie true et noMarque false
-            if (cmbCategorie.Text != null & cmbMarque.Text == null)
+            // Cas ou noCategorie = 0 et noMarque = 0
+            if (noCategorie == 0 & noMarque == 0)
+            {
+                requete = "Select DATEAJOUT,LIBELLE,PRIXHT,TAUXTVA,QUANTITEENSTOCK,DISPONIBLE,VITRINE from Produit";
+            }
+            // Cas ou noCategorie != 0 et noMarque = 0
+            else if (noCategorie != 0 & noMarque == 0)
             {
                 requete = "Select DATEAJOUT,LIBELLE,PRIXHT,TAUXTVA,QUANTITEENSTOCK,DISPONIBLE,VITRINE from Produit WHERE NOCATEGORIE = " + noCategorie;
-                ChargerListeProduits(requete);
             }
-            // Cas ou noCategorie false et noMarque true
-            else if (cmbCategorie.Text == null & cmbMarque.Text != null)
+            // Cas ou noCategorie = 0 et noMarque != 0
+            else if (noCategorie == 0 & noMarque != 0)
             {
                 requete = "Select DATEAJOUT,LIBELLE,PRIXHT,TAUXTVA,QUANTITEENSTOCK,DISPONIBLE,VITRINE from Produit WHERE NOMARQUE = " + noMarque;
-                ChargerListeProduits(requete);
             }
-            // Cas ou noCategorie true et noMarque true
+            // Cas ou noCategorie != 0 et noMarque != 0
             else
             {
                 requete = "Select DATEAJOUT,LIBELLE,PRIXHT,TAUXTVA,QUANTITEENSTOCK,DISPONIBLE,VITRINE from Produit WHERE NOCATEGORIE = " + noCategorie + "AND NOMARQUE = " + noMarque;
-                ChargerListeProduits(requete);
             }
+            ChargerListeProduits(requete);
         }
     }
 }
