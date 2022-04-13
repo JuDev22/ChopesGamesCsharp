@@ -141,58 +141,96 @@ namespace ChopesGames
         // Dès que la valeur de la cmbCategorie change, on récupère le noCategorie et on l'envoie a critères de recherche pour la requete
         private void cmbCategorie_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int noCategorie = ((Categorie)(cmbCategorie.SelectedItem)).GetNoCategorie();
-            int noMarque = 0;
-            foreach (Categorie categorie in cmbCategorie.Items)
+            int noCategorie;
+            int noMarque;
+            if (cmbCategorie.SelectedItem == null)
             {
-                if (categorie.GetNoCategorie() == noCategorie)
+                noCategorie = 0;
+            }
+            else
+            {
+                noCategorie = ((Categorie)(cmbCategorie.SelectedItem)).GetNoCategorie();
+                foreach (Categorie categorie in cmbCategorie.Items)
                 {
-                    cmbCategorie.SelectedItem = categorie;
-                    criteresRecherche(noMarque, noCategorie);
+                    if (categorie.GetNoCategorie() == noCategorie)
+                    {
+                        cmbCategorie.SelectedItem = categorie;
+                    }
                 }
             }
+            if (cmbMarque.SelectedItem == null)
+            {
+                noMarque = 0;
+            }
+            else
+            {
+                noMarque = ((Marque)(cmbMarque.SelectedItem)).GetNoMarque();
+                foreach (Marque marque in cmbMarque.Items)
+                {
+                    if (marque.GetNoMarque() == noMarque)
+                    {
+                        cmbMarque.SelectedItem = marque;
+                    }
+                }
+            }
+            criteresRecherche(noMarque, noCategorie);
         }
         // Dès que la valeur de la cmbMarque change, on récupère le cmbMarque et on l'envoie a critères de recherche pour la requete
         private void cmbMarque_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int noMarque = ((Marque)(cmbMarque.SelectedItem)).GetNoMarque();
-/*            if (cmbCategorie.Text == null)
+            int noCategorie;
+            int noMarque;
+            if (cmbCategorie.SelectedItem == null)
             {
-            }*/
-                int noCategorie = 0;
-            
-            foreach (Marque marque in cmbMarque.Items)
+                noCategorie = 0;
+            }
+            else
             {
-                if (marque.GetNoMarque() == noMarque)
+                noCategorie = ((Categorie)(cmbCategorie.SelectedItem)).GetNoCategorie();
+                foreach (Categorie categorie in cmbCategorie.Items)
                 {
-                    cmbMarque.SelectedItem = marque;
-                    criteresRecherche(noMarque,noCategorie);
+                    if (categorie.GetNoCategorie() == noCategorie)
+                    {
+                        cmbCategorie.SelectedItem = categorie;
+                    }
                 }
             }
+            if (cmbMarque.SelectedItem == null)
+            {
+                noMarque = 0;
+            }
+            else
+            {
+                noMarque = ((Marque)(cmbMarque.SelectedItem)).GetNoMarque();
+                foreach (Marque marque in cmbMarque.Items)
+                {
+                    if (marque.GetNoMarque() == noMarque)
+                    {
+                        cmbMarque.SelectedItem = marque;
+                    }
+                }
+            }
+            criteresRecherche(noMarque, noCategorie);
         }
         // Préparation de la requete avec les valeurs récupérés
         void criteresRecherche(int noMarque, int noCategorie)
         {
             string requete;
-            // Cas ou noCategorie = 0 et noMarque = 0
-            if (noCategorie == 0 & noMarque == 0)
+            if (noMarque == 0 & noCategorie == 0)
             {
                 requete = "Select DATEAJOUT,LIBELLE,PRIXHT,TAUXTVA,QUANTITEENSTOCK,DISPONIBLE,VITRINE from Produit";
             }
-            // Cas ou noCategorie != 0 et noMarque = 0
-            else if (noCategorie != 0 & noMarque == 0)
-            {
-                requete = "Select DATEAJOUT,LIBELLE,PRIXHT,TAUXTVA,QUANTITEENSTOCK,DISPONIBLE,VITRINE from Produit WHERE NOCATEGORIE = " + noCategorie;
-            }
-            // Cas ou noCategorie = 0 et noMarque != 0
-            else if (noCategorie == 0 & noMarque != 0)
+            else if (noMarque != 0 & noCategorie == 0)
             {
                 requete = "Select DATEAJOUT,LIBELLE,PRIXHT,TAUXTVA,QUANTITEENSTOCK,DISPONIBLE,VITRINE from Produit WHERE NOMARQUE = " + noMarque;
             }
-            // Cas ou noCategorie != 0 et noMarque != 0
+            else if (noMarque == 0 & noCategorie != 0)
+            {
+                requete = "Select DATEAJOUT,LIBELLE,PRIXHT,TAUXTVA,QUANTITEENSTOCK,DISPONIBLE,VITRINE from Produit WHERE NOCATEGORIE = " + noCategorie;
+            }
             else
             {
-                requete = "Select DATEAJOUT,LIBELLE,PRIXHT,TAUXTVA,QUANTITEENSTOCK,DISPONIBLE,VITRINE from Produit WHERE NOCATEGORIE = " + noCategorie + "AND NOMARQUE = " + noMarque;
+                requete = "Select DATEAJOUT,LIBELLE,PRIXHT,TAUXTVA,QUANTITEENSTOCK,DISPONIBLE,VITRINE from Produit WHERE NOMARQUE = " + noMarque + " AND NOCATEGORIE = " + noCategorie;
             }
             ChargerListeProduits(requete);
         }
